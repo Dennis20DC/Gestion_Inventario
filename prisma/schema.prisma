@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model almacenes {
+  id_almacen       Int         @id @default(autoincrement())
+  nombre           String      @db.VarChar(100)
+  ubicacion        String?     @db.VarChar(150)
+  estado_auditoria String?     @default("1") @db.Char(1)
+  fecha_creacion   DateTime?   @default(now()) @db.Timestamp(6)
+  ingresos         ingresos[]
+  productos        productos[]
+}
+
+model categorias {
+  id_categoria     Int         @id @default(autoincrement())
+  nombre           String      @db.VarChar(100)
+  descripcion      String?     @db.VarChar(255)
+  estado_auditoria String?     @default("1") @db.Char(1)
+  fecha_creacion   DateTime?   @default(now()) @db.Timestamp(6)
+  productos        productos[]
+}
+
+model clientes {
+  id_cliente       Int       @id @default(autoincrement())
+  nombre           String    @db.VarChar(100)
+  telefono         String?   @db.VarChar(20)
+  correo           String?   @db.VarChar(100)
+  direccion        String?   @db.VarChar(150)
+  estado_auditoria String?   @default("1") @db.Char(1)
+  fecha_creacion   DateTime? @default(now()) @db.Timestamp(6)
+  ventas           ventas[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model detalle_venta {
+  id_detalle_venta Int       @id @default(autoincrement())
+  id_venta         Int
+  id_producto      Int
+  cantidad         Int
+  precio_unitario  Decimal   @db.Decimal(10, 2)
+  costo_total      Decimal   @db.Decimal(10, 2)
+  fecha_ingreso    DateTime? @default(now()) @db.Timestamp(6)
+  estado_auditoria String?   @default("1") @db.Char(1)
+  productos        productos @relation(fields: [id_producto], references: [id_producto], onDelete: NoAction, onUpdate: NoAction)
+  ventas           ventas    @relation(fields: [id_venta], references: [id_venta], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model ingresos {
+  id_ingreso       Int       @id @default(autoincrement())
+  id_almacen       Int
+  cantidad         Int
+  costo_unitario   Decimal   @db.Decimal(10, 2)
+  costo_total      Decimal   @db.Decimal(10, 2)
+  fecha_ingreso    DateTime? @default(now()) @db.Timestamp(6)
+  estado_auditoria String?   @default("1") @db.Char(1)
+  almacenes        almacenes @relation(fields: [id_almacen], references: [id_almacen], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model productos {
+  id_producto      Int             @id @default(autoincrement())
+  nombre           String          @db.VarChar(100)
+  descripcion      String?         @db.VarChar(200)
+  precio_unitario  Decimal         @db.Decimal(10, 2)
+  stock            Int             @default(0)
+  id_categoria     Int
+  id_proveedor     Int
+  id_almacen       Int
+  estado_auditoria String?         @default("1") @db.Char(1)
+  fecha_creacion   DateTime?       @default(now()) @db.Timestamp(6)
+  detalle_venta    detalle_venta[]
+  almacenes        almacenes       @relation(fields: [id_almacen], references: [id_almacen], onDelete: NoAction, onUpdate: NoAction)
+  categorias       categorias      @relation(fields: [id_categoria], references: [id_categoria], onDelete: NoAction, onUpdate: NoAction)
+  proveedores      proveedores     @relation(fields: [id_proveedor], references: [id_proveedor], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model proveedores {
+  id_proveedor     Int         @id @default(autoincrement())
+  nombre           String      @db.VarChar(100)
+  ruc              String      @unique @db.VarChar(20)
+  direccion        String?     @db.VarChar(150)
+  telefono         String?     @db.VarChar(20)
+  correo           String?     @db.VarChar(100)
+  estado_auditoria String?     @default("1") @db.Char(1)
+  fecha_creacion   DateTime?   @default(now()) @db.Timestamp(6)
+  productos        productos[]
+}
+
+model ventas {
+  id_venta         Int             @id @default(autoincrement())
+  id_cliente       Int?
+  fecha_venta      DateTime?       @default(now()) @db.Timestamp(6)
+  estado_auditoria String?         @default("1") @db.Char(1)
+  fecha_creacion   DateTime?       @default(now()) @db.Timestamp(6)
+  detalle_venta    detalle_venta[]
+  clientes         clientes?       @relation(fields: [id_cliente], references: [id_cliente], onDelete: NoAction, onUpdate: NoAction)
+}
