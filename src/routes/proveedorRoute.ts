@@ -19,7 +19,7 @@ const router: Router = express.Router();
 
 /**
  * @swagger
- * /api/v1/proveedores:
+ * /api/v2/proveedores:
  *   get:
  *     summary: Listar todos los proveedores
  *     tags: [Proveedor]
@@ -33,7 +33,7 @@ router.get('/', listarProveedores);
 
 /**
  * @swagger
- * /api/v1/proveedores/{id}:
+ * /api/v2/proveedores/{id}:
  *   get:
  *     summary: Obtener un proveedor por ID
  *     tags: [Proveedor]
@@ -53,7 +53,7 @@ router.get('/:id', obtenerProveedor);
 
 /**
  * @swagger
- * /api/v1/proveedores:
+ * /api/v2/proveedores:
  *   post:
  *     summary: Registrar un nuevo proveedor
  *     tags: [Proveedor]
@@ -81,7 +81,7 @@ router.post('/', insertarProveedor);
 
 /**
  * @swagger
- * /api/v1/proveedores/{id}:
+ * /api/v2/proveedores/{id}:
  *   put:
  *     summary: Modificar un proveedor
  *     tags: [Proveedor]
@@ -115,7 +115,7 @@ router.put('/:id', modificarProveedor);
 
 /**
  * @swagger
- * /api/v1/proveedores/{id}:
+ * /api/v2/proveedores/{id}:
  *   delete:
  *     summary: Eliminar un proveedor
  *     tags: [Proveedor]

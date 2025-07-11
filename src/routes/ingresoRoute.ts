@@ -19,7 +19,7 @@ const router: Router = express.Router();
 
 /**
  * @swagger
- * /api/v1/ingresos:
+ * /api/v2/ingresos:
  *   get:
  *     summary: Listar todos los ingresos
  *     tags: [Ingreso]
@@ -33,7 +33,7 @@ router.get('/', listarIngresos);
 
 /**
  * @swagger
- * /api/v1/ingresos/{id}:
+ * /api/v2/ingresos/{id}:
  *   get:
  *     summary: Obtener un ingreso por ID
  *     tags: [Ingreso]
@@ -54,7 +54,7 @@ router.get('/:id', obtenerIngreso);
 
 /**
  * @swagger
- * /api/v1/ingresos:
+ * /api/v2/ingresos:
  *   post:
  *     summary: Registrar un nuevo ingreso
  *     tags: [Ingreso]
@@ -88,7 +88,7 @@ router.post('/', insertarIngreso);
 
 /**
  * @swagger
- * /api/v1/ingresos/{id}:
+ * /api/v2/ingresos/{id}:
  *   put:
  *     summary: Modificar un ingreso
  *     tags: [Ingreso]
@@ -129,7 +129,7 @@ router.put('/:id', modificarIngreso);
 
 /**
  * @swagger
- * /api/v1/ingresos/{id}:
+ * /api/v2/ingresos/{id}:
  *   delete:
  *     summary: Eliminar un ingreso
  *     tags: [Ingreso]

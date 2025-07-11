@@ -19,7 +19,7 @@ const router: Router = express.Router();
 
 /**
  * @swagger
- * /api/v1/categorias:
+ * /api/v2/categorias:
  *   get:
  *     summary: Listar todas las categorías
  *     tags: [Categoria]
@@ -33,7 +33,7 @@ router.get("/", listarCategorias);
 
 /**
  * @swagger
- * /api/v1/categorias/{id}:
+ * /api/v2/categorias/{id}:
  *   get:
  *     summary: Obtener una categoría por ID
  *     tags: [Categoria]
@@ -54,7 +54,7 @@ router.get("/:id",  obtenerCategorias);
 
 /**
  * @swagger
- * /api/v1/categorias:
+ * /api/v2/categorias:
  *   post:
  *     summary: Crear una nueva categoría
  *     tags: [Categoria]
@@ -77,7 +77,7 @@ router.post("/",  insertarCategorias);
 
 /**
  * @swagger
- * /api/v1/categorias/{id}:
+ * /api/v2/categorias/{id}:
  *   put:
  *     summary: Modificar una categoría
  *     tags: [Categoria]
@@ -106,7 +106,7 @@ router.put("/:id",  modificarCategorias);
 
 /**
  * @swagger
- * /api/v1/categorias/{id}:
+ * /api/v2/categorias/{id}:
  *   delete:
  *     summary: Eliminar una categoría
  *     tags: [Categoria]

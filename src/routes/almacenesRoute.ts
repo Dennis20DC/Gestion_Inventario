@@ -19,7 +19,7 @@ const router: Router = express.Router();
 
 /**
  * @swagger
- * /api/v1/almacenes:
+ * /api/v2/almacenes:
  *   get:
  *     summary: Listar todos los almacenes
  *     tags: [Almacen]
@@ -33,7 +33,7 @@ router.get('/', listarAlmacenes);
 
 /**
  * @swagger
- * /api/v1/almacenes/{id}:
+ * /api/v2/almacenes/{id}:
  *   get:
  *     summary: Obtener un almacén por ID
  *     tags: [Almacen]
@@ -54,7 +54,7 @@ router.get('/:id', obtenerAlmacen);
 
 /**
  * @swagger
- * /api/v1/almacenes:
+ * /api/v2/almacenes:
  *   post:
  *     summary: Registrar un nuevo almacén
  *     tags: [Almacen]
@@ -79,7 +79,7 @@ router.post('/', insertarAlmacen);
 
 /**
  * @swagger
- * /api/v1/almacenes/{id}:
+ * /api/v2/almacenes/{id}:
  *   put:
  *     summary: Modificar un almacén
  *     tags: [Almacen]
@@ -111,7 +111,7 @@ router.put('/:id', modificarAlmacen);
 
 /**
  * @swagger
- * /api/v1/almacenes/{id}:
+ * /api/v2/almacenes/{id}:
  *   delete:
  *     summary: Eliminar un almacén
  *     tags: [Almacen]

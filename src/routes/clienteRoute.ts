@@ -19,7 +19,7 @@ const router: Router = express.Router();
 
 /**
  * @swagger
- * /api/v1/clientes:
+ * /api/v2/clientes:
  *   get:
  *     summary: Listar todos los clientes
  *     tags: [Cliente]
@@ -33,7 +33,7 @@ router.get('/', listarClientes);
 
 /**
  * @swagger
- * /api/v1/clientes/{id}:
+ * /api/v2/clientes/{id}:
  *   get:
  *     summary: Obtener un cliente por ID
  *     tags: [Cliente]
@@ -54,7 +54,7 @@ router.get('/:id', obtenerCliente);
 
 /**
  * @swagger
- * /api/v1/clientes:
+ * /api/v2/clientes:
  *   post:
  *     summary: Registrar un nuevo cliente
  *     tags: [Cliente]
@@ -79,7 +79,7 @@ router.post('/', insertarCliente);
 
 /**
  * @swagger
- * /api/v1/clientes/{id}:
+ * /api/v2/clientes/{id}:
  *   put:
  *     summary: Modificar un cliente
  *     tags: [Cliente]
@@ -111,7 +111,7 @@ router.put('/:id', modificarCliente);
 
 /**
  * @swagger
- * /api/v1/clientes/{id}:
+ * /api/v2/clientes/{id}:
  *   delete:
  *     summary: Eliminar un cliente
  *     tags: [Cliente]

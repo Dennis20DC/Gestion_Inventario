@@ -19,7 +19,7 @@ const router: Router = express.Router();
 
 /**
  * @swagger
- * /api/v1/productos:
+ * /api/v2/productos:
  *   get:
  *     summary: Listar todos los productos
  *     tags: [Producto]
@@ -33,7 +33,7 @@ router.get('/', listarProductos);
 
 /**
  * @swagger
- * /api/v1/productos/{id}:
+ * /api/v2/productos/{id}:
  *   get:
  *     summary: Obtener un producto por ID
  *     tags: [Producto]
@@ -54,7 +54,7 @@ router.get('/:id', obtenerProducto);
 
 /**
  * @swagger
- * /api/v1/productos:
+ * /api/v2/productos:
  *   post:
  *     summary: Registrar un nuevo producto
  *     tags: [Producto]
@@ -94,7 +94,7 @@ router.post('/', insertarProducto);
 
 /**
  * @swagger
- * /api/v1/productos/{id}:
+ * /api/v2/productos/{id}:
  *   put:
  *     summary: Modificar un producto
  *     tags: [Producto]
@@ -140,7 +140,7 @@ router.put('/:id', modificarProducto);
 
 /**
  * @swagger
- * /api/v1/productos/{id}:
+ * /api/v2/productos/{id}:
  *   delete:
  *     summary: Eliminar un producto
  *     tags: [Producto]

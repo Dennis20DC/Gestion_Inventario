@@ -19,7 +19,7 @@ const router: Router = express.Router();
 
 /**
  * @swagger
- * /api/v1/ventas:
+ * /api/v2/ventas:
  *   get:
  *     summary: Listar todas las ventas
  *     tags: [Venta]
@@ -33,7 +33,7 @@ router.get('/', listarVentas);
 
 /**
  * @swagger
- * /api/v1/ventas/{id}:
+ * /api/v2/ventas/{id}:
  *   get:
  *     summary: Obtener una venta por ID
  *     tags: [Venta]
@@ -54,7 +54,7 @@ router.get('/:id', obtenerVenta);
 
 /**
  * @swagger
- * /api/v1/ventas:
+ * /api/v2/ventas:
  *   post:
  *     summary: Registrar una nueva venta
  *     tags: [Venta]
@@ -93,7 +93,7 @@ router.post('/', insertarVenta);
 
 /**
  * @swagger
- * /api/v1/ventas/{id}:
+ * /api/v2/ventas/{id}:
  *   put:
  *     summary: Modificar una venta
  *     tags: [Venta]
@@ -138,7 +138,7 @@ router.put('/:id', modificarVenta);
 
 /**
  * @swagger
- * /api/v1/ventas/{id}:
+ * /api/v2/ventas/{id}:
  *   delete:
  *     summary: Eliminar una venta
  *     tags: [Venta]
