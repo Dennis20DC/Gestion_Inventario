@@ -19,7 +19,6 @@ const router: Router = express.Router();
 
 /**
  * @swagger
- * /api/v2/detalle-ventas:
  *   get:
  *     summary: Listar todos los detalles de venta
  *     tags: [DetalleVenta]
@@ -33,7 +32,6 @@ router.get('/', listarDetalleVentas);
 
 /**
  * @swagger
- * /api/v2/detalle/{id}:
  *   get:
  *     summary: Obtener un detalle de venta por ID
  *     tags: [DetalleVenta]
