@@ -19,6 +19,7 @@ const router: Router = express.Router();
 
 /**
  * @swagger
+ * /api/v2/detalles:
  *   get:
  *     summary: Listar todos los detalles de venta
  *     tags: [DetalleVenta]
@@ -26,11 +27,13 @@ const router: Router = express.Router();
  *       - bearerAuth: []
  *     responses:
  *       200:
+ *         description: Lista de detalles de venta obtenida correctamente
  */
 router.get('/', listarDetalleVentas);
 
 /**
  * @swagger
+ * /api/v2/detalles/{id}:
  *   get:
  *     summary: Obtener un detalle de venta por ID
  *     tags: [DetalleVenta]
