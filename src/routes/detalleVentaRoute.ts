@@ -26,7 +26,6 @@ const router: Router = express.Router();
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: Lista de detalles de venta obtenida correctamente
  */
 router.get('/', listarDetalleVentas);
 
