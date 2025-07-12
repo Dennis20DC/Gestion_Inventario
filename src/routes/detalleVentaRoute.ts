@@ -33,7 +33,7 @@ router.get('/', listarDetalleVentas);
 
 /**
  * @swagger
- * /api/v2/detalle-ventas/{id}:
+ * /api/v2/detalle/{id}:
  *   get:
  *     summary: Obtener un detalle de venta por ID
  *     tags: [DetalleVenta]
@@ -54,7 +54,7 @@ router.get('/:id', obtenerDetalleVenta);
 
 /**
  * @swagger
- * /api/v2/detalle-ventas:
+ * /api/v2/detalle:
  *   post:
  *     summary: Registrar un nuevo detalle de venta
  *     tags: [DetalleVenta]
@@ -91,7 +91,7 @@ router.post('/', insertarDetalleVenta);
 
 /**
  * @swagger
- * /api/v2/detalle-ventas/{id}:
+ * /api/v2/detalle/{id}:
  *   put:
  *     summary: Modificar un detalle de venta
  *     tags: [DetalleVenta]
@@ -134,7 +134,7 @@ router.put('/:id', modificarDetalleVenta);
 
 /**
  * @swagger
- * /api/v2/detalle-ventas/{id}:
+ * /api/v2/detalle/{id}:
  *   delete:
  *     summary: Eliminar un detalle de venta
  *     tags: [DetalleVenta]
